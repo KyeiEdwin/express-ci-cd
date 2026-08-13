@@ -1,19 +1,53 @@
 # Express CI/CD Pipeline Demo
 
-Basic CI/CD pipeline using GitHub Actions that:
+A basic Continuous Integration and Continuous Deployment (CI/CD) pipeline built with **GitHub Actions**, **Docker**, and **Render**.
 
-1. Runs automated tests
+The pipeline automatically:
+1. Runs unit tests
 2. Builds a Docker image
-3. Pushes the image to GitHub Container Registry (ghcr.io)
-4. Deploys to a staging environment on Render.com
+3. Pushes the image to GitHub Container Registry (`ghcr.io`)
+4. Deploys the application to a staging environment on Render
 
-## Pipeline Overview
+---
 
-- **Trigger**: Push or Pull Request to `main`
-- **Jobs**:
-  - `test` → runs Jest tests
-  - `build-and-push` → builds and pushes Docker image to `ghcr.io`
-  - `deploy-staging` → triggers Render deploy via Deploy Hook
+## Live Demo
+
+- **Staging Environment**: [https://express-ci-cd-staging.onrender.com.](https://express-ci-cd-staging.onrender.com.)
+
+- **GitHub Repository**: [https://github.com/KyeiEdwin/express-ci-cd](https://github.com/KyeiEdwin/express-ci-cd)
+
+---
+
+## Tech Stack
+
+| Component              | Technology                          |
+|------------------------|-------------------------------------|
+| Runtime                | Node.js 22                          |
+| Framework              | Express.js                          |
+| Testing                | Jest + Supertest                    |
+| Containerization       | Docker                              |
+| CI/CD                  | GitHub Actions                      |
+| Container Registry     | GitHub Container Registry (ghcr.io) |
+| Staging Environment    | Render.com                          |
+
+---
+
+## Project Structure
+
+```text
+express-ci-cd/
+├── src/
+│   └── index.js              # Express application
+├── tests/
+│   └── app.test.js           # Unit tests
+├── .github/
+│   └── workflows/
+│       └── ci-cd.yml         # CI/CD pipeline
+├── Dockerfile
+├── .dockerignore
+├── .gitignore
+├── package.json
+└── README.md
 
 ## Security Vulnerability Introduced
 
